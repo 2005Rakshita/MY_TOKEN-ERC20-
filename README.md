@@ -6,9 +6,12 @@ this program includes mint, burn and transfer the currency to the user by using 
 
 # Feartures
 
-* 1.Mint(): The contract owner can mint the new tokens and assign them to any specified address.
-* 2.Burn(): Any user can burn their own rewards.
-* 3.Transfer(): Users can transfer tokens to other addresses. Standard ERC20 transfer functionality allows users to transfer token.
+* Minting: The contract owner can mint new tokens and assign them to any specified address.
+* Burning: Any user can burn their own rewards.
+* Transferring: Users can transfer tokens to other addresses. Standard ERC20 transfer functionality allows users to transfer Loyalty Points to others.
+#  Executing program
+
+To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
 
 # Import Statements
 
@@ -25,11 +28,6 @@ contract Mtoken is ERC20 {}
 The constructor initializes the ERC20 token with a name and symbol:
 ```
 constructor(uint256 tottal_supply) ERC20("Reward_user", "RU") {}
-```
-## Minting Tokens
-
-The mint function allows the contract owner to mint new tokens to a specified address:
-```
  
     _mint(msg.sender, total_supply);
 ```
@@ -38,23 +36,23 @@ The mint function allows the contract owner to mint new tokens to a specified ad
 ## Burning Tokens
 
 Any user can burn their own tokens.
-```
-function burn(uint256 amount) public {
+
+     function burn(uint256 amount) public {
     _burn(msg.sender, amount);
-}
-```
+      }
+
 * amount: The number of tokens to burn.
 * The function reduces the total supply of tokens by the specified amount.
 
 ## Transferring Tokens
 
 The transfer function allows users to transfer tokens to another address. 
-```
-function transfer(address recipient, uint256 amount) public override returns (bool) {
+
+     function transfer(address recipient, uint256 amount) public override returns (bool) {
     _transfer(_msgSender(), recipient, amount);
     return true;
-}
-```
+     }
+
 * recipient: The address to receive the tokens.
 *  amount: The number of tokens to transfer.
 *  The function returns a boolean indicating success.
@@ -63,3 +61,6 @@ function transfer(address recipient, uint256 amount) public override returns (bo
 Rakshita Thakur 
 
 thakurrakshita067@gmail.com
+# License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
